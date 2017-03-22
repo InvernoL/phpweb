@@ -1,5 +1,5 @@
 <?php
 
-	echo "Test PHP CI";
+	echo "Test PHP CI System";
 
 ?>
