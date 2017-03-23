@@ -1,52 +1,12 @@
-
+<?php 
+	include_once 'inc/header.php'; 
+?>
     <div class="container">
-		<div class="starter-template">
-			</div>
+		<div class="starter-template"></div>
 
-		<?php 
-	
-			include_once 'inc/header.php'; 
-			require_once('inc/paginator.php');
-			
-			$conn = new mysqli('127.0.0.1', 'master', 'master', 'employees');
-			$limit = (isset($_GET["limit"])) ? $_GET["limit"] : 10;
-			$page = (isset($_GET["page"])) ? $_GET["page"] : 1;
-			$links = (isset($_GET["links"])) ? $_GET["links"] : 1;
-			$letter = isset($_GET['letter']) ? $_GET['letter'] : 'A';
-			
-			//$query = isset($_GET['letter']) ? "SELECT * FROM employees WHERE first_name LIKE '$letter%'" : "SELECT * FROM employees";
-			$query = "SELECT * FROM employees";
-			
-			$Paginator = new Paginator($conn, $query, $letter);
-			$results = $Paginator->getData( $limit, $page, $letter );
-		?>
-			
-		  <h3 class="sub-header">Our Employees</h3>
+		<p>this is a simple paragraph that is meant to be nice and easy to type which is why there will be mommas no periods or any capital letters so i guess this means that it cannot really be considered a paragraph but just a series of run on sentences this should help you get faster at typing as im trying not to use too many difficult words in it although i think that i might start making it hard by including some more difficult letters I'm typing pretty quickly so forgive me for any mistakes i think that i will not just tell you a story about the time i went to the zoo and found a monkey and a fox playing together they were so</p>
 		
-		  <?php echo $Paginator->wordLink(); ?>
-		
-		  <table class="table table-hover">
-			<tr>
-				<th>ID</th>
-				<th>FirstName</th>
-				<th>LastName</th>
-				<th>Gender</th>
-				<th>Birth date</th>
-				<th>Hire date</th>
-			</tr>
-			<?php for( $i = 0; $i < count( $results->data ); $i++ ) : ?>
-				<tr>
-					<td><?php echo $results->data[$i]['emp_no']; ?></td>
-					<td><?php echo $results->data[$i]['first_name']; ?></td>
-					<td><?php echo $results->data[$i]['last_name']; ?></td>
-					<td><?php echo $results->data[$i]['gender']; ?></td>
-					<td><?php echo $results->data[$i]['birth_date']; ?></td>
-					<td><?php echo $results->data[$i]['hire_date']; ?></td>
-				</tr>
-			<?php endfor; ?>
-		  </table>
-		  
-		  <?php echo $Paginator->createLinks( $links, 'pagination pagination-md' ); ?> 
+		<div class="alert">dsadsa</div>
 		  
     </div><!-- /.container -->
 
